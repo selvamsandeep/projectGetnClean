@@ -79,10 +79,18 @@ meanDf <- sapply(split(mergedDf[,4:21], list(mergedDf$activity, mergedDf$subject
 meanMat<-matrix(meanDf, 180,18)
 tempDf<-data.frame(meanMat)
 names(tempDf)<-row.names(meanDf)
-activitySubject<- data.frame(colnames(meanDf))
-names(activitySubject)<-"activity for each Subject"
+tempcol1<-as.character(colnames(meanDf))
+activity<-rep(NA,180)
+for(i in 1:nrow(tempDf)){
+     activity[i]<- strsplit(tempcol1[i], split='[,.]')[[1]][1]
+ }
+activitySubject<-data.frame(activity)
+activitySubject$subject<-"unset"
+for(i in 1:nrow(tempDf)){
+     activitySubject$subject[i]<- strsplit(tempcol1[i], split='[,.]')[[1]][2]
+}
 
 tidydata<-cbind(activitySubject,tempDf)
 
-#writting tidydata set as "tidydata.txt"
+#writting tidydata in tidydata.txt
 write.table(tidydata, file="./tidydata.txt", sep="\t")
