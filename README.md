@@ -1,9 +1,8 @@
 projectGetnClean
 ================
-##R script called run_analysis.for creating independent tidy data set 
-#with the average of each variable for each activity and each subject. 
+##R script called run_analysis.for creating independent tidy data set with the average of each variable for each activity and each subject. 
 
-* reading fetrues text- date set feature name
+*reading fetrues text- date set feature name
 *reading Activity lables from 'activity_labels.txt'(Links the class labels with their activity name.)
 *Uses descriptive activity names to name the activities for XTrain data set
 

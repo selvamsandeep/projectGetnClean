@@ -84,5 +84,5 @@ names(activitySubject)<-"activity for each Subject"
 
 tidydata<-cbind(activitySubject,tempDf)
 
-
+#writting tidydata set as "tidydata.txt"
 write.table(tidydata, file="./tidydata.txt", sep="\t")
